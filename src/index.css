@@ -25,7 +25,7 @@ img {
 }
 
 body {
-  background: var(--White);
+  background:rgba(20, 20, 20, 1) ;
   font-family: Inter;
   font-style: normal;
   font-weight: 400;

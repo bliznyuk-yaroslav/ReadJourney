@@ -1,0 +1,22 @@
+.advantages_section {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 343px;
+  height: 353px;
+  background: rgba(31, 31, 31, 1);
+  padding: 20px;
+  border-radius: 30px;
+}
+@media screen and (min-width: 768px) {
+  .advantages_section {
+    max-width: 704px;
+    height: 446px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .advantages_section {
+    max-width: 600px;
+    height: 736px;
+  }
+}

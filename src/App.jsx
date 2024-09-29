@@ -1,9 +1,9 @@
-import "./App.css";
+import AdvantagesSection from "./components/AdvantagesSection/AdvantagesSection";
 
 function App() {
   return (
     <>
-      <p>Hello world</p>
+      <AdvantagesSection />
     </>
   );
 }
