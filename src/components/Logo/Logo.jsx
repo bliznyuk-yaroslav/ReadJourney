@@ -3,7 +3,9 @@ import css from "./Logo.module.css";
 export default function Logo() {
   return (
     <NavLink to="/" className={css.logo}>
-      <img src="../../image/sprite/icon.svg" alt="logo" />
+      <svg className={css.svgEdit}>
+        <use xlinkHref={`${sprite}#icon-edit-2`} />
+      </svg>
     </NavLink>
   );
 }
