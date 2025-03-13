@@ -1,8 +1,6 @@
 .advantages_section {
   position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 343px;
+  width: 343px;
   height: 353px;
   background: rgba(31, 31, 31, 1);
   border-radius: 30px;
@@ -10,7 +8,7 @@
 
 @media screen and (min-width: 768px) {
   .advantages_section {
-    max-width: 704px;
+    width: 704px;
     height: 446px;
   }
 }
@@ -19,14 +17,23 @@
     width: 600px;
     height: 736px;
   }
-  .background_image {
-    background-image: url("../../image/x1/iPhone 15.png");
-    background-repeat: no-repeat;
-    width: 405px;
-    height: 835px;
-    margin: auto;
+
+  .title {
+    width: 444px;
+    height: 180px;
     position: absolute;
-    top: 80px;
-    left: 98px;
+    color: rgb(249, 249, 249);
+    font-family: "Gilroy", sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0.02em;
+    text-align: left;
+
+    left: 96px;
+    top: 196px;
+  }
+  .textBook {
+    color: rgba(227, 227, 227, 0.5);
   }
 }
