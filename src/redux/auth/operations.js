@@ -55,16 +55,15 @@ export const register = createAsyncThunk(
   }
 );
 export const logIn = createAsyncThunk(
-    '/users/singin',
-    async (credentials, thunkAPI) => {
-        try {
-            const { data } = await apiClient.post('/users/singin', credentials);
-            const { accessToken } = data;
-            setAuthHeader(accessToken);
-            return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.response?.data || error.message);
-            
-        }
+  "/users/singin",
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await apiClient.post("/users/singin", credentials);
+      const { accessToken } = data;
+      setAuthHeader(accessToken);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }
-)
+  }
+);

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register } from "../../redux/auth/operations";
 import toast from "react-hot-toast";
@@ -14,8 +14,7 @@ import { FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email()
-    .matches("^(?!.*@[^,]*,)", "Invalid email")
+    .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string()
     .required("Password is required")
@@ -23,15 +22,14 @@ const validationSchema = Yup.object().shape({
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)/,
       "Password must contain at least one letter and one number"
-    )
-    .matches("[a-zA-Z]", "Password can only contain Latin letters."),
+    ),
   repeatPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Repeat Password is required"),
 });
-export default function SindUpForm() {
+export default function SignUpForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const {
@@ -58,13 +56,13 @@ export default function SindUpForm() {
       return;
     }
 
-    const { repeatPassword, ...payload } = data;
+    const { ...payload } = data;
 
     try {
       await dispatch(register(payload)).unwrap();
       toast.success("Successfully register!");
       reset();
-      navigate("/singin");
+      // navigate("/singin");
     } catch (error) {
       toast.error(error?.message || "Registration failed");
     }
@@ -120,10 +118,7 @@ export default function SindUpForm() {
               )}
             />
 
-            <div
-              className={css.iconeye}
-              onClick={() => setShowPassword(!showPassword)}
-            >
+            <div onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FiEye /> : <FiEyeOff />}
             </div>
           </div>
@@ -146,10 +141,7 @@ export default function SindUpForm() {
                 />
               )}
             />
-            <div
-              className={css.iconeye}
-              onClick={() => setShowRepeatPassword(!showRepeatPassword)}
-            >
+            <div onClick={() => setShowRepeatPassword(!showRepeatPassword)}>
               {showRepeatPassword ? <FiEye /> : <FiEyeOff />}
             </div>
           </div>
